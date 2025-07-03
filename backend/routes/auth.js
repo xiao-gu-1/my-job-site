@@ -27,8 +27,11 @@ router.post('/register', async (req, res) => {
         'INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, NOW())',
         [username, email, hashedPassword],
         (err, result) => {
-          if (err) return res.status(500).json({ message: '注册失败' });
-
+          if (err) {
+            console.error('注册失败:', err); // 打印详细错误
+            return res.status(500).json({ message: '注册失败！！！！' });
+            }
+            console.log('注册成功:', result); // 打印插入结果
           const token = jwt.sign(
             { userId: result.insertId },
             process.env.JWT_SECRET || 'your-secret-key',
@@ -90,8 +93,12 @@ router.post('/login', (req, res) => {
 // 注销账户（删除用户）
 router.post('/delete', (req, res) => {
   const { userId } = req.body;
-  db.query('DELETE FROM users WHERE id = ?', [userId], (err, result) => {
-    if (err) return res.status(500).json({ message: '注销失败' });
+  db.query(
+    'DELETE FROM users WHERE id = ?', [userId], (err, result) => {
+    if (err) {
+      console.error('注销失败:', err);
+      return res.status(500).json({ message: '注销失败' });
+    }
     res.json({ message: '账户已注销' });
   });
 });

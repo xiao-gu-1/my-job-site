@@ -1,4 +1,5 @@
 // backend/models/User.js
+//创建用户模型
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
