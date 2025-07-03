@@ -20,7 +20,7 @@ function Login() {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', values);
+      const res = await axios.post('/api/auth/login', values);
       message.success('登录成功，正在跳转...');
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
