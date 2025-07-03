@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body, html {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%) !important;
+  background-attachment: fixed;
+}
+
+/* 确保根容器占满整个视口高度 */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 强制提升 antd message 的层级，确保在最上面 */
+.ant-message {
+  z-index: 9999 !important;
+  position: fixed !important;
+  top: 24px !important;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+/* 底边栏样式优化 */
+.ant-layout-footer {
+  margin-top: auto !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .ant-layout-footer {
+    padding: 20px 16px 16px !important;
+  }
+}

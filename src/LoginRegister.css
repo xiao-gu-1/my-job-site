@@ -1,0 +1,55 @@
+/* 登录/注册页面背景渐变和居中布局 */
+.login-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bgfadein 1.2s;
+}
+
+@keyframes bgfadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.login-center {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 380px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.95);
+  animation: cardpop 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+  transition: box-shadow 0.3s;
+}
+
+@keyframes cardpop {
+  0% { transform: scale(0.8) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.login-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.22);
+}
+
+.ant-form-item-label > label {
+  font-weight: bold;
+  color: #5a189a;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+} 

@@ -1,0 +1,7 @@
+/* UserCenter 页面样式 */ 
+.usercenter-bg {
+    min-height: calc(100vh - 64px);
+    background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+    padding: 8px;
+    box-sizing: border-box;
+  }
